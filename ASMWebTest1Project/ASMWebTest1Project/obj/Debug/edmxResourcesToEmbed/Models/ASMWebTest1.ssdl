@@ -1,0 +1,417 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ASMWebTest1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="departmentID" Type="int" />
+  </EntityType>
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="categoryID" />
+    </Key>
+    <Property Name="categoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="categoryName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="closureDate" Type="datetime" />
+    <Property Name="finalDate" Type="datetime" />
+    <Property Name="Cstatus" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Departments">
+    <Key>
+      <PropertyRef Name="departmentID" />
+    </Key>
+    <Property Name="departmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="departmenName" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ideas">
+    <Key>
+      <PropertyRef Name="ideaID" />
+    </Key>
+    <Property Name="ideaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ideaTitle" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="creatAt" Type="datetime" Nullable="false" />
+    <Property Name="fileI" Type="varbinary(max)" />
+    <Property Name="urlFile" Type="varchar" MaxLength="255" />
+    <Property Name="description" Type="nvarchar" MaxLength="255" />
+    <Property Name="categoryID" Type="int" />
+    <Property Name="likes" Type="int" Nullable="false" />
+    <Property Name="dislikes" Type="int" Nullable="false" />
+    <Property Name="Iname" Type="nchar" MaxLength="255" />
+    <Property Name="incognito" Type="nvarchar" MaxLength="50" />
+    <Property Name="CountViews" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Information">
+    <Key>
+      <PropertyRef Name="informationID" />
+    </Key>
+    <Property Name="informationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="DOB" Type="date" Nullable="false" />
+    <Property Name="Irole" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="phoneNumber" Type="int" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="address" Type="nvarchar" MaxLength="255" />
+    <Property Name="departmentID" Type="int" />
+  </EntityType>
+  <EntityType Name="Interactive">
+    <Key>
+      <PropertyRef Name="interactiveID" />
+    </Key>
+    <Property Name="interactiveID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="createOn" Type="datetime" />
+    <Property Name="comment" Type="nvarchar(max)" />
+    <Property Name="ideaID" Type="int" />
+    <Property Name="Cname" Type="nvarchar" MaxLength="255" />
+    <Property Name="incognito" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LikeDislike">
+    <Key>
+      <PropertyRef Name="likeDislikeID" />
+    </Key>
+    <Property Name="likeDislikeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsAction" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserAction" Type="nvarchar" MaxLength="50" />
+    <Property Name="ideaID" Type="int" />
+  </EntityType>
+  <EntityType Name="Replies">
+    <Key>
+      <PropertyRef Name="repliesID" />
+    </Key>
+    <Property Name="repliesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="createOn" Type="datetime" />
+    <Property Name="comment" Type="nvarchar" MaxLength="255" />
+    <Property Name="Rname" Type="nvarchar" MaxLength="255" />
+    <Property Name="interactiveID" Type="int" />
+    <Property Name="ideaID" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ASMWebTest1.dbo.view_a' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="view_a">
+    <Key>
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Department" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ASMWebTest1.dbo.view_d' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="view_d">
+    <Key>
+      <PropertyRef Name="ideaID" />
+    </Key>
+    <Property Name="ideaID" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="TotalLikes" Type="int" />
+    <Property Name="TotalComments" Type="int" />
+    <Property Name="TotalInteract" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ASMWebTest1.dbo.view_e' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="view_e">
+    <Key>
+      <PropertyRef Name="ideaID" />
+      <PropertyRef Name="ideaTitle" />
+      <PropertyRef Name="creatAt" />
+      <PropertyRef Name="likes" />
+      <PropertyRef Name="dislikes" />
+      <PropertyRef Name="CountViews" />
+    </Key>
+    <Property Name="ideaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ideaTitle" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="creatAt" Type="datetime" Nullable="false" />
+    <Property Name="fileI" Type="varbinary(max)" />
+    <Property Name="urlFile" Type="varchar" MaxLength="255" />
+    <Property Name="description" Type="nvarchar" MaxLength="255" />
+    <Property Name="categoryID" Type="int" />
+    <Property Name="likes" Type="int" Nullable="false" />
+    <Property Name="dislikes" Type="int" Nullable="false" />
+    <Property Name="Iname" Type="nchar" MaxLength="255" />
+    <Property Name="incognito" Type="nvarchar" MaxLength="50" />
+    <Property Name="CountViews" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ASMWebTest1.dbo.view_f' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="view_f">
+          <Property Name="TotalIdeas" Type="int" />
+        </EntityType>-->
+  <Association Name="FK__AspNetUse__depar__5AEE82B9">
+    <End Role="Departments" Type="Self.Departments" Multiplicity="0..1" />
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="departmentID" />
+      </Principal>
+      <Dependent Role="AspNetUsers">
+        <PropertyRef Name="departmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AspNetUse__depar__5BE2A6F2">
+    <End Role="Departments" Type="Self.Departments" Multiplicity="0..1" />
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="departmentID" />
+      </Principal>
+      <Dependent Role="AspNetUsers">
+        <PropertyRef Name="departmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ideas__categoryI__282DF8C2">
+    <End Role="Categories" Type="Self.Categories" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Ideas" Type="Self.Ideas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="categoryID" />
+      </Principal>
+      <Dependent Role="Ideas">
+        <PropertyRef Name="categoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Informati__depar__5DCAEF64">
+    <End Role="Departments" Type="Self.Departments" Multiplicity="0..1" />
+    <End Role="Information" Type="Self.Information" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="departmentID" />
+      </Principal>
+      <Dependent Role="Information">
+        <PropertyRef Name="departmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Interacti__ideaI__5BE2A6F2">
+    <End Role="Ideas" Type="Self.Ideas" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Interactive" Type="Self.Interactive" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ideas">
+        <PropertyRef Name="ideaID" />
+      </Principal>
+      <Dependent Role="Interactive">
+        <PropertyRef Name="ideaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LikeDisli__ideaI__5224328E">
+    <End Role="Ideas" Type="Self.Ideas" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="LikeDislike" Type="Self.LikeDislike" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ideas">
+        <PropertyRef Name="ideaID" />
+      </Principal>
+      <Dependent Role="LikeDislike">
+        <PropertyRef Name="ideaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="P_TotalContributors" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="P_TotalIdeas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Year" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="ASMWebTest1ModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Departments" EntityType="Self.Departments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ideas" EntityType="Self.Ideas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Information" EntityType="Self.Information" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Interactive" EntityType="Self.Interactive" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LikeDislike" EntityType="Self.LikeDislike" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Replies" EntityType="Self.Replies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="view_a" EntityType="Self.view_a" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [view_a].[UserName] AS [UserName], 
+    [view_a].[Department] AS [Department]
+    FROM [dbo].[view_a] AS [view_a]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="view_d" EntityType="Self.view_d" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [view_d].[ideaID] AS [ideaID], 
+    [view_d].[Title] AS [Title], 
+    [view_d].[TotalLikes] AS [TotalLikes], 
+    [view_d].[TotalComments] AS [TotalComments], 
+    [view_d].[TotalInteract] AS [TotalInteract]
+    FROM [dbo].[view_d] AS [view_d]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="view_e" EntityType="Self.view_e" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [view_e].[ideaID] AS [ideaID], 
+    [view_e].[ideaTitle] AS [ideaTitle], 
+    [view_e].[creatAt] AS [creatAt], 
+    [view_e].[fileI] AS [fileI], 
+    [view_e].[urlFile] AS [urlFile], 
+    [view_e].[description] AS [description], 
+    [view_e].[categoryID] AS [categoryID], 
+    [view_e].[likes] AS [likes], 
+    [view_e].[dislikes] AS [dislikes], 
+    [view_e].[Iname] AS [Iname], 
+    [view_e].[incognito] AS [incognito], 
+    [view_e].[CountViews] AS [CountViews]
+    FROM [dbo].[view_e] AS [view_e]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__AspNetUse__depar__5AEE82B9" Association="Self.FK__AspNetUse__depar__5AEE82B9">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AspNetUse__depar__5BE2A6F2" Association="Self.FK__AspNetUse__depar__5BE2A6F2">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ideas__categoryI__282DF8C2" Association="Self.FK__Ideas__categoryI__282DF8C2">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Ideas" EntitySet="Ideas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Informati__depar__5DCAEF64" Association="Self.FK__Informati__depar__5DCAEF64">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="Information" EntitySet="Information" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Interacti__ideaI__5BE2A6F2" Association="Self.FK__Interacti__ideaI__5BE2A6F2">
+      <End Role="Ideas" EntitySet="Ideas" />
+      <End Role="Interactive" EntitySet="Interactive" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LikeDisli__ideaI__5224328E" Association="Self.FK__LikeDisli__ideaI__5224328E">
+      <End Role="Ideas" EntitySet="Ideas" />
+      <End Role="LikeDislike" EntitySet="LikeDislike" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<ASMWebTest1Project.Models.Replies>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.comment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.createOn)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Interactive.comment)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.comment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.createOn)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Interactive.comment)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.repliesID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.repliesID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.repliesID })
+        </td>
+    </tr>
+}
+
+</table>

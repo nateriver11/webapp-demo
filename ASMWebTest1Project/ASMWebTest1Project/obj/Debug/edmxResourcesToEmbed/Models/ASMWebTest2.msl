@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ASMWebTest2ModelStoreContainer" CdmEntityContainer="ASMWebTest2Entities">
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="ASMWebTest2Model.Categories">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+          <ScalarProperty Name="categoryName" ColumnName="categoryName" />
+          <ScalarProperty Name="closureDate" ColumnName="closureDate" />
+          <ScalarProperty Name="finalDate" ColumnName="finalDate" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ideas">
+      <EntityTypeMapping TypeName="ASMWebTest2Model.Ideas">
+        <MappingFragment StoreEntitySet="Ideas">
+          <ScalarProperty Name="ideaID" ColumnName="ideaID" />
+          <ScalarProperty Name="ideaTitle" ColumnName="ideaTitle" />
+          <ScalarProperty Name="creatOn" ColumnName="creatOn" />
+          <ScalarProperty Name="mode" ColumnName="mode" />
+          <ScalarProperty Name="fileI" ColumnName="fileI" />
+          <ScalarProperty Name="urlFile" ColumnName="urlFile" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="likes" ColumnName="likes" />
+          <ScalarProperty Name="dislikes" ColumnName="dislikes" />
+          <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+          <ScalarProperty Name="informationID" ColumnName="informationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Information">
+      <EntityTypeMapping TypeName="ASMWebTest2Model.Information">
+        <MappingFragment StoreEntitySet="Information">
+          <ScalarProperty Name="informationID" ColumnName="informationID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Irole" ColumnName="Irole" />
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="address" ColumnName="address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Interactive">
+      <EntityTypeMapping TypeName="ASMWebTest2Model.Interactive">
+        <MappingFragment StoreEntitySet="Interactive">
+          <ScalarProperty Name="interactiveID" ColumnName="interactiveID" />
+          <ScalarProperty Name="createOn" ColumnName="createOn" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="likes" ColumnName="likes" />
+          <ScalarProperty Name="dislikes" ColumnName="dislikes" />
+          <ScalarProperty Name="mode" ColumnName="mode" />
+          <ScalarProperty Name="informationID" ColumnName="informationID" />
+          <ScalarProperty Name="ideaID" ColumnName="ideaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notification">
+      <EntityTypeMapping TypeName="ASMWebTest2Model.Notification">
+        <MappingFragment StoreEntitySet="Notification">
+          <ScalarProperty Name="notificationID" ColumnName="notificationID" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="interactiveID" ColumnName="interactiveID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Replies">
+      <EntityTypeMapping TypeName="ASMWebTest2Model.Replies">
+        <MappingFragment StoreEntitySet="Replies">
+          <ScalarProperty Name="repliesID" ColumnName="repliesID" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="interactiveID" ColumnName="interactiveID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

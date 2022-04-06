@@ -1,0 +1,45 @@
+﻿@model ASMWebTest1Project.Models.Replies
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Replies</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.comment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.createOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.createOn)
+        </dd>
+
+        
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Interactive.comment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Interactive.comment)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.repliesID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

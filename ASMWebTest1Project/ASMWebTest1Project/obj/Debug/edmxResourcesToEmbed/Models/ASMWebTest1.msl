@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ASMWebTest1ModelStoreContainer" CdmEntityContainer="ASMWebTest1Entities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="ASMWebTest1Model.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="ASMWebTest1Model.AspNetRoles">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="ASMWebTest1Model.AspNetUserClaims">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="ASMWebTest1Model.AspNetUserLogins">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="ASMWebTest1Model.AspNetUsers">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="departmentID" ColumnName="departmentID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="ASMWebTest1Model.Categories">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+          <ScalarProperty Name="categoryName" ColumnName="categoryName" />
+          <ScalarProperty Name="closureDate" ColumnName="closureDate" />
+          <ScalarProperty Name="finalDate" ColumnName="finalDate" />
+          <ScalarProperty Name="Cstatus" ColumnName="Cstatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ideas">
+      <EntityTypeMapping TypeName="ASMWebTest1Model.Ideas">
+        <MappingFragment StoreEntitySet="Ideas">
+          <ScalarProperty Name="CountViews" ColumnName="CountViews" />
+          <ScalarProperty Name="incognito" ColumnName="incognito" />
+          <ScalarProperty Name="ideaID" ColumnName="ideaID" />
+          <ScalarProperty Name="ideaTitle" ColumnName="ideaTitle" />
+          <ScalarProperty Name="creatAt" ColumnName="creatAt" />
+          <ScalarProperty Name="fileI" ColumnName="fileI" />
+          <ScalarProperty Name="urlFile" ColumnName="urlFile" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+          <ScalarProperty Name="likes" ColumnName="likes" />
+          <ScalarProperty Name="dislikes" ColumnName="dislikes" />
+          <ScalarProperty Name="Iname" ColumnName="Iname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Information">
+      <EntityTypeMapping TypeName="ASMWebTest1Model.Information">
+        <MappingFragment StoreEntitySet="Information">
+          <ScalarProperty Name="departmentID" ColumnName="departmentID" />
+          <ScalarProperty Name="informationID" ColumnName="informationID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Irole" ColumnName="Irole" />
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="address" ColumnName="address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Interactive">
+      <EntityTypeMapping TypeName="ASMWebTest1Model.Interactive">
+        <MappingFragment StoreEntitySet="Interactive">
+          <ScalarProperty Name="incognito" ColumnName="incognito" />
+          <ScalarProperty Name="interactiveID" ColumnName="interactiveID" />
+          <ScalarProperty Name="createOn" ColumnName="createOn" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="ideaID" ColumnName="ideaID" />
+          <ScalarProperty Name="Cname" ColumnName="Cname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Replies">
+      <EntityTypeMapping TypeName="ASMWebTest1Model.Replies">
+        <MappingFragment StoreEntitySet="Replies">
+          <ScalarProperty Name="ideaID" ColumnName="ideaID" />
+          <ScalarProperty Name="repliesID" ColumnName="repliesID" />
+          <ScalarProperty Name="createOn" ColumnName="createOn" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="Rname" ColumnName="Rname" />
+          <ScalarProperty Name="interactiveID" ColumnName="interactiveID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="ASMWebTest1Model.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="LikeDislike">
+      <EntityTypeMapping TypeName="ASMWebTest1Model.LikeDislike">
+        <MappingFragment StoreEntitySet="LikeDislike">
+          <ScalarProperty Name="UserAction" ColumnName="UserAction" />
+          <ScalarProperty Name="IsAction" ColumnName="IsAction" />
+          <ScalarProperty Name="ideaID" ColumnName="ideaID" />
+          <ScalarProperty Name="likeDislikeID" ColumnName="likeDislikeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="ASMWebTest1Model.Departments">
+        <MappingFragment StoreEntitySet="Departments">
+          <ScalarProperty Name="departmenName" ColumnName="departmenName" />
+          <ScalarProperty Name="departmentID" ColumnName="departmentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="view_a">
+      <EntityTypeMapping TypeName="ASMWebTest1Model.view_a">
+        <MappingFragment StoreEntitySet="view_a">
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetTotalContributors" FunctionName="ASMWebTest1Model.Store.P_TotalContributors">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASMWebTest1Model.GetTotalContributors_Result">
+          <ScalarProperty Name="TotalContributors" ColumnName="TotalContributors" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetTotalIdeas" FunctionName="ASMWebTest1Model.Store.P_TotalIdeas">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ASMWebTest1Model.GetTotalIdeas_Result">
+          <ScalarProperty Name="TotalIdeas" ColumnName="TotalIdeas" />
+          <ScalarProperty Name="departmenName" ColumnName="departmenName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="view_d">
+      <EntityTypeMapping TypeName="ASMWebTest1Model.view_d">
+        <MappingFragment StoreEntitySet="view_d">
+          <ScalarProperty Name="TotalInteract" ColumnName="TotalInteract" />
+          <ScalarProperty Name="TotalComments" ColumnName="TotalComments" />
+          <ScalarProperty Name="TotalLikes" ColumnName="TotalLikes" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ideaID" ColumnName="ideaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="view_e">
+      <EntityTypeMapping TypeName="ASMWebTest1Model.view_e">
+        <MappingFragment StoreEntitySet="view_e">
+          <ScalarProperty Name="CountViews" ColumnName="CountViews" />
+          <ScalarProperty Name="incognito" ColumnName="incognito" />
+          <ScalarProperty Name="Iname" ColumnName="Iname" />
+          <ScalarProperty Name="dislikes" ColumnName="dislikes" />
+          <ScalarProperty Name="likes" ColumnName="likes" />
+          <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="urlFile" ColumnName="urlFile" />
+          <ScalarProperty Name="fileI" ColumnName="fileI" />
+          <ScalarProperty Name="creatAt" ColumnName="creatAt" />
+          <ScalarProperty Name="ideaTitle" ColumnName="ideaTitle" />
+          <ScalarProperty Name="ideaID" ColumnName="ideaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

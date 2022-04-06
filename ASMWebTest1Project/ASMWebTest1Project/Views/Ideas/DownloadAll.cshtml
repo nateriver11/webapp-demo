@@ -1,0 +1,44 @@
+﻿@using ASMWebTest1Project.Models
+@model List<FileModel>
+@{
+    ViewBag.Title = "DownloadAll";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h2>DownloadAll</h2>
+
+@using (Html.BeginForm("DownloadAll", "Ideas", FormMethod.Post))
+{
+    <table class="table table-bordered table-condensed">
+        <thead>
+            <tr>
+                <th><input type="checkbox" onclick="toggle(this);" /> Select all<br /></th>
+                <th>File Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Count(); i++)
+            {
+                <tr>
+                    <td>@Html.CheckBoxFor(model => model[i].IsSelected)</td>
+                    <td>
+                        @Model[i].FileName
+                        @Html.HiddenFor(model => model[i].FilePath)
+                        @Html.HiddenFor(model => model[i].FileName)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br />
+    <input type="submit" value="Download Selected file as ZIP" />
+    <script>
+        function toggle(source) {
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i] != source)
+                    checkboxes[i].checked = source.checked;
+            }
+        }
+    </script>
+}

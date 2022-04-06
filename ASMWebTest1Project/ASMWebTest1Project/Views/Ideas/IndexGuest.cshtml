@@ -1,0 +1,118 @@
+﻿@model PagedList.IPagedList<ASMWebTest1Project.Models.Ideas>
+@using PagedList.Mvc;
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+@{
+    ViewBag.Title = "IndexGuest";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<section class="home-section">
+    <nav>
+        <div class="sidebar-button">
+
+            <span class="dashboard">Dashboard</span>
+        </div>
+        <div class="search-box" style="display: flex">
+            @using (Html.BeginForm("IndexGuest", "Ideas", FormMethod.Get))
+            {
+                @Html.TextBox("Search_Data", ViewBag.FilterValue as string, new { @placeholder = "Search" })
+                <input class="search" type="submit" value="     " /><i class="fa fa-search" style="font-size: 28px; position: absolute;left: 270px;top: 10px;"></i>
+            }
+        </div>
+        <div class="profile-details dropdown">
+
+            <span class="admin_name">
+                Welcome, @Html.DisplayFor(modelItem => User.Identity.Name)
+
+            </span><a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                     
+            </a>
+           
+        </div>
+    </nav>
+
+    <div class="home-content">
+
+
+        <div class="sales-boxes">
+            <div class="recent-sales box">
+                <div class="title text-center">Idea Manage</div>
+                <br />
+                @if (User.IsInRole("Qualitity Assurance Manager"))
+                {
+                    <button class="btn btn-secondary" style="color:white">
+
+                        @Html.ActionLink("Create New", "Create")
+                        
+                    </button>
+                    <button class="btn btn-secondary" style="color:white">
+                        @Html.ActionLink("Download All", "DownloadAll")
+                    </button>
+                }
+                    <br />
+                    <br />
+                    <div class="sales-details">
+                        <table class="table tbi" id="tbl">
+                            <tr>
+                                <th>
+                                    @Html.ActionLink("Title", "IndexGuest", new { Sorting_Order = ViewBag.SortingTitle })
+                                </th>
+                                
+                                <th>
+                                    @Html.ActionLink("User Post", "IndexGuest", new { Sorting_Order = ViewBag.SortingUser })
+                                </th>
+                                
+                                <th>
+                                    @Html.ActionLink("Category", "IndexGuest", new { Sorting_Order = ViewBag.SortingCategory })
+                                </th>
+                                <th style="color:#337ab7 ">
+                                    Action
+                                </th>
+                            </tr>
+
+                            @foreach (var item in Model.Where(c => c.Iname.Trim() == User.Identity.Name))
+                            {
+                                
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ideaTitle)
+                                        </td>
+                                        
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Iname)
+                                        </td>
+                                        
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Categories.categoryName)
+                                        </td>
+                                        <td>
+                                            <a>@Html.ActionLink(" ", "Edit", new { id = item.ideaID }, new { @class = "fa-solid fa-pen-to-square decor-fa-e", @style = "font-size: 20px; letter-spacing:5px; color: #337ab7" })</a>
+                                            <a>@Html.ActionLink(" ", "Views", new { id = item.ideaID }, new { @class = "fa-solid fa-eye", @style = "font-size: 20px; letter-spacing:5px; color: #337ab7" })</a>
+                                            <a>
+                                                @Html.ActionLink(" ", "Download", new
+                                           {
+                                               fileName = item.urlFile
+                                           }, new { @class = "fa-solid fa-download", @style = "font-size: 20px; letter-spacing:5px; color: #337ab7" })
+                                            </a>
+                                            <a>@Html.ActionLink(" ", "Delete", new { id = item.ideaID }, new { @class = "fa-solid fa-trash-can decor-fa-d", @style = "font-size: 20px; letter-spacing:5px; color: #337ab7" })</a>
+
+                                        </td>
+                                    </tr>
+                                
+                            }
+
+                        </table>
+
+                    </div>
+                    <br />
+                    <br />
+                    @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)of @Model.PageCount
+                    @Html.PagedListPager(Model, Page_No => Url.Action("IndexGuest",
+                        new { Page_No, Sorting_Order = ViewBag.CurrentSortOrder, Filter_Value = ViewBag.FilterValue }))
+            </div>
+
+        </div>
+    </div>
+</section>

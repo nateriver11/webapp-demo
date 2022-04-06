@@ -1,0 +1,119 @@
+﻿@model ASMWebTest1Project.Models.Ideas
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+<style>
+    .container {
+        
+        margin: 0 auto;
+    }
+</style>
+<section class="home-section">
+    <nav>
+        <div class="sidebar-button">
+
+            <span class="dashboard">Dashboard</span>
+        </div>
+        <div class="search-box" style="display: flex">
+            @using (Html.BeginForm("Index", "Ideas", FormMethod.Get))
+            {
+                @Html.TextBox("Search_Data", ViewBag.FilterValue as string, new { @placeholder = "Search" })
+                <input class="search" type="submit" value="     " /><i class="fa fa-search" style="font-size: 28px; position: absolute;left: 270px;top: 10px;"></i>
+            }
+        </div>
+        <div class="profile-details">
+
+            <span class="admin_name">
+                Welcome, @Html.DisplayFor(modelItem => User.Identity.Name)
+            </span>
+
+        </div>
+    </nav>
+    /////////////////////////
+    <div class="home-content">
+
+
+        <div class="sales-boxes">
+            <div class="recent-sales box">
+                <div class="sales-details" style="display:block">
+                    @using (Html.BeginForm("Create",
+                         "Ideas",
+                         FormMethod.Post,
+                         new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+                    <div class="container" id="ctnn" >
+                        <h2 class="text-center">Create Idea</h2>
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <h4>Title Idea</h4>
+                            <div>
+                                @Html.EditorFor(model => model.ideaTitle, new { htmlAttributes = new { @class = "form-control " } })
+                                @Html.ValidationMessageFor(model => model.ideaTitle, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        @Html.Hidden("creatAt", DateTime.Now)
+
+
+
+                    <div class="form-group">
+                        <h4>File</h4>
+                        <div >
+                            <input type="file" name="file" />
+                            @Html.ValidationMessageFor(model => model.fileI, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                        @Html.Hidden("Iname", User.Identity.Name)
+                        <div class="form-group">
+                            <h4>Description</h4>
+                            <div>
+                                @Html.EditorFor(model => model.description, new { htmlAttributes = new { @class = "form-control text-center" } })
+                                @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <h4>Category</h4>
+                            <div id="mySelect">
+                                @Html.DropDownList("categoryID", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.categoryID, "", new { @class = "text-danger" })
+                                
+                            </div>
+                        </div>
+                        <div style="color:red;margin:10px" class="text-center">
+                            @ViewBag.message
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success" onclick="return confirm('      Are you understand about Term and Policy?        Abusive users — Terms and conditions allow you to establish what constitutes appropriate activity on your site or app, so you can remove abusive users and content that violates your guidelines.Intellectual property theft — Asserting your claim to the creative assets of your site in your terms and conditions will prevent ownership disputes and copyright infringement.Potential litigation — If a user lodges a legal complaint against your business, showing that they were presented with clear terms and conditions before they used your site will help you immensely in court.')">Create</button>
+                            </div>
+                        </div>
+                    </div>
+                        
+                    }
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</section>
+
+
+
+
+
+
+
+  

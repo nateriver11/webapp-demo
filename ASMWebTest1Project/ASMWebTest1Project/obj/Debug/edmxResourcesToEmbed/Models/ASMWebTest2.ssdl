@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ASMWebTest2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="categoryID" />
+    </Key>
+    <Property Name="categoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="categoryName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="closureDate" Type="datetime" Nullable="false" />
+    <Property Name="finalDate" Type="datetime" Nullable="false" />
+    <Property Name="status" Type="varchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Ideas">
+    <Key>
+      <PropertyRef Name="ideaID" />
+    </Key>
+    <Property Name="ideaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ideaTitle" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="creatOn" Type="datetime" />
+    <Property Name="mode" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="fileI" Type="varbinary(max)" />
+    <Property Name="urlFile" Type="nvarchar" MaxLength="255" />
+    <Property Name="description" Type="varchar" MaxLength="255" />
+    <Property Name="likes" Type="int" />
+    <Property Name="dislikes" Type="int" />
+    <Property Name="categoryID" Type="int" />
+    <Property Name="informationID" Type="int" />
+  </EntityType>
+  <EntityType Name="Information">
+    <Key>
+      <PropertyRef Name="informationID" />
+    </Key>
+    <Property Name="informationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="DOB" Type="date" Nullable="false" />
+    <Property Name="Irole" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="phoneNumber" Type="int" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="address" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Interactive">
+    <Key>
+      <PropertyRef Name="interactiveID" />
+    </Key>
+    <Property Name="interactiveID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="createOn" Type="datetime" />
+    <Property Name="comment" Type="varchar" MaxLength="255" />
+    <Property Name="likes" Type="int" />
+    <Property Name="dislikes" Type="int" />
+    <Property Name="mode" Type="varchar" MaxLength="30" />
+    <Property Name="informationID" Type="int" />
+    <Property Name="ideaID" Type="int" />
+  </EntityType>
+  <EntityType Name="Notification">
+    <Key>
+      <PropertyRef Name="notificationID" />
+    </Key>
+    <Property Name="notificationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="status" Type="int" />
+    <Property Name="interactiveID" Type="int" />
+  </EntityType>
+  <EntityType Name="Replies">
+    <Key>
+      <PropertyRef Name="repliesID" />
+    </Key>
+    <Property Name="repliesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="comment" Type="varchar" MaxLength="255" />
+    <Property Name="interactiveID" Type="int" />
+  </EntityType>
+  <Association Name="FK__Ideas__categoryI__3C69FB99">
+    <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+    <End Role="Ideas" Type="Self.Ideas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="categoryID" />
+      </Principal>
+      <Dependent Role="Ideas">
+        <PropertyRef Name="categoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ideas__informati__3D5E1FD2">
+    <End Role="Information" Type="Self.Information" Multiplicity="0..1" />
+    <End Role="Ideas" Type="Self.Ideas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Information">
+        <PropertyRef Name="informationID" />
+      </Principal>
+      <Dependent Role="Ideas">
+        <PropertyRef Name="informationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Interacti__ideaI__412EB0B6">
+    <End Role="Ideas" Type="Self.Ideas" Multiplicity="0..1" />
+    <End Role="Interactive" Type="Self.Interactive" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ideas">
+        <PropertyRef Name="ideaID" />
+      </Principal>
+      <Dependent Role="Interactive">
+        <PropertyRef Name="ideaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Interacti__infor__403A8C7D">
+    <End Role="Information" Type="Self.Information" Multiplicity="0..1" />
+    <End Role="Interactive" Type="Self.Interactive" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Information">
+        <PropertyRef Name="informationID" />
+      </Principal>
+      <Dependent Role="Interactive">
+        <PropertyRef Name="informationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Notificat__inter__47DBAE45">
+    <End Role="Interactive" Type="Self.Interactive" Multiplicity="0..1" />
+    <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Interactive">
+        <PropertyRef Name="interactiveID" />
+      </Principal>
+      <Dependent Role="Notification">
+        <PropertyRef Name="interactiveID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Replies__interac__440B1D61">
+    <End Role="Interactive" Type="Self.Interactive" Multiplicity="0..1" />
+    <End Role="Replies" Type="Self.Replies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Interactive">
+        <PropertyRef Name="interactiveID" />
+      </Principal>
+      <Dependent Role="Replies">
+        <PropertyRef Name="interactiveID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ASMWebTest2ModelStoreContainer">
+    <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ideas" EntityType="Self.Ideas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Information" EntityType="Self.Information" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Interactive" EntityType="Self.Interactive" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notification" EntityType="Self.Notification" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Replies" EntityType="Self.Replies" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Ideas__categoryI__3C69FB99" Association="Self.FK__Ideas__categoryI__3C69FB99">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Ideas" EntitySet="Ideas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ideas__informati__3D5E1FD2" Association="Self.FK__Ideas__informati__3D5E1FD2">
+      <End Role="Information" EntitySet="Information" />
+      <End Role="Ideas" EntitySet="Ideas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Interacti__ideaI__412EB0B6" Association="Self.FK__Interacti__ideaI__412EB0B6">
+      <End Role="Ideas" EntitySet="Ideas" />
+      <End Role="Interactive" EntitySet="Interactive" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Interacti__infor__403A8C7D" Association="Self.FK__Interacti__infor__403A8C7D">
+      <End Role="Information" EntitySet="Information" />
+      <End Role="Interactive" EntitySet="Interactive" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Notificat__inter__47DBAE45" Association="Self.FK__Notificat__inter__47DBAE45">
+      <End Role="Interactive" EntitySet="Interactive" />
+      <End Role="Notification" EntitySet="Notification" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Replies__interac__440B1D61" Association="Self.FK__Replies__interac__440B1D61">
+      <End Role="Interactive" EntitySet="Interactive" />
+      <End Role="Replies" EntitySet="Replies" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

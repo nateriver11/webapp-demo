@@ -1,0 +1,35 @@
+﻿@if (Request.IsAuthenticated)
+{
+
+    if (User.IsInRole("Qualitity Assurance Manager"))
+    {
+        @Html.Partial("_QAMMenu");
+    }
+    else if (User.IsInRole("Quality Assurance Coordinator"))
+    {
+        @Html.Partial("_QACMenu");
+    }
+    else if (User.IsInRole("Staff"))
+    {
+        @Html.Partial("_StaffMenu");
+    }
+    else if (User.IsInRole("Admin"))
+    {
+        @Html.Partial("_AdminMenu");
+    }
+    <li>
+        <a href="~/Authen/Logout">
+            <i class='bx bx-log-out'></i>
+            <span class="links_name">Log out</span>
+        </a>
+    </li>
+}
+else
+{
+    <li>
+        <a href="~/Authen/Login">
+            <i class='bx bx-log-in'></i>
+            <span class="links_name">Log in</span>
+        </a>
+    </li>
+}

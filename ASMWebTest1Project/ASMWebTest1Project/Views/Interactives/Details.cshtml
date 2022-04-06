@@ -1,0 +1,76 @@
+﻿@*@model ASMWebTest1Project.Models.Interactive
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Interactive</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.createOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.createOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.likes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.likes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dislikes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dislikes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ideas.ideaTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ideas.ideaTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Information.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Information.name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.interactiveID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+*@

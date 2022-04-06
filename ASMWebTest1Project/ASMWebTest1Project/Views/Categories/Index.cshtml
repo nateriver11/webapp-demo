@@ -1,0 +1,108 @@
+﻿@model PagedList.IPagedList<ASMWebTest1Project.Models.Categories>
+@using PagedList.Mvc;
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+
+<section class="home-section">
+    <nav>
+        <div class="sidebar-button">
+
+
+        </div>
+        <div class="search-box" style="display: flex">
+            @using (Html.BeginForm("Index", "Categories", FormMethod.Get))
+            {
+                @Html.TextBox("Search_Data", ViewBag.FilterValue as string, new { @placeholder = "Search" })
+
+                <input class="search" type="submit" value="     " /><i class="fa fa-search" style="font-size: 28px; position: absolute;
+        left: 275px;
+        top: 10px;
+"></i>
+
+            }
+        </div>
+        <div class="profile-details">
+
+            <span class="admin_name">
+                Welcome, @Html.DisplayFor(modelItem => User.Identity.Name)
+            </span>
+
+        </div>
+    </nav>
+
+    <div class="home-content">
+
+
+        <div class="sales-boxes">
+            <div class="recent-sales box">
+                <div class="title text-center"><h3>Category Manage</h3></div>
+                <br />
+                <button class="btn btn-secondary">
+                    @Html.ActionLink("Create New", "Create")
+                </button>
+                <button class="btn btn-secondary">
+
+                @Html.ActionLink("Download File CSV", "ExportCSV")
+                </button>
+                <br />
+                <br />
+                <div class="sales-details">
+                    <table class="table tbi" id="tbl">
+                        <tr>
+                            <th>
+                                @Html.ActionLink("Name", "Index", new { Sorting_Order = ViewBag.SortingName })
+                            </th>
+                            <th>
+                                @Html.ActionLink("Closure Date", "Index", new { Sorting_Order = ViewBag.SortingCD })
+                            </th>
+                            <th>
+                                @Html.ActionLink("Final Date", "Index", new { Sorting_Order = ViewBag.SortingFD })
+                            </th>
+                            <th>
+                                @Html.ActionLink("Status", "Index", new { Sorting_Order = ViewBag.SortingStatus })
+                            </th>
+                            <th style="color:#337ab7 ">
+                                Action
+                            </th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.categoryName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.closureDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.finalDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Cstatus)
+                                </td>
+                                <td>
+                                    <a>@Html.ActionLink(" ", "Details", new { id = item.categoryID }, new { @class = "fa-solid fa-circle-info decor-fa-ds", @style = "font-size: 20px; letter-spacing:5px; color: #337ab7" })</a>
+                                    <a>@Html.ActionLink(" ", "Edit", new { id = item.categoryID }, new { @class = "fa-solid fa-pen-to-square decor-fa-e", @style = "font-size: 20px; letter-spacing:5px; color: #337ab7" })</a>
+                                    <a>@Html.ActionLink(" ", "Delete", new { id = item.categoryID }, new { @class = "fa-solid fa-trash-can decor-fa-d", @style = "font-size: 20px; letter-spacing:5px; color: #337ab7" })</a>
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+
+                </div>
+                <br />
+                <br />
+                @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+                @Html.PagedListPager(Model, Page_No => Url.Action("Index",
+                    new { Page_No, Sorting_Order = ViewBag.CurrentSortOrder, Filter_Value = ViewBag.FilterValue }))
+            </div>
+
+        </div>
+    </div>
+</section>

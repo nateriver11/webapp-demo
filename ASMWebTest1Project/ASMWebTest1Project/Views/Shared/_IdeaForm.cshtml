@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+</head>
+<body>
+    <div class="col-sm-9 pading-right">
+        <h2>Comment</h2>
+        @using (Html.BeginForm("Create", "Interactive", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.TextArea("Comment")
+            <input type="submit" value="Post"/>
+        }
+        <div id="comments">
+            <div class="comment">
+                <div class="comment-name">MR X</div>
+                <div class="comment-content">Beautiful</div>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

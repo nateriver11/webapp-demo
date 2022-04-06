@@ -1,0 +1,1059 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ASMWebTest1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="departmentID" Type="int" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="categoryID" />
+          </Key>
+          <Property Name="categoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="categoryName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="closureDate" Type="datetime" />
+          <Property Name="finalDate" Type="datetime" />
+          <Property Name="Cstatus" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Departments">
+          <Key>
+            <PropertyRef Name="departmentID" />
+          </Key>
+          <Property Name="departmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="departmenName" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ideas">
+          <Key>
+            <PropertyRef Name="ideaID" />
+          </Key>
+          <Property Name="ideaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ideaTitle" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="creatAt" Type="datetime" Nullable="false" />
+          <Property Name="fileI" Type="varbinary(max)" />
+          <Property Name="urlFile" Type="varchar" MaxLength="255" />
+          <Property Name="description" Type="nvarchar" MaxLength="255" />
+          <Property Name="categoryID" Type="int" />
+          <Property Name="likes" Type="int" Nullable="false" />
+          <Property Name="dislikes" Type="int" Nullable="false" />
+          <Property Name="Iname" Type="nchar" MaxLength="255" />
+          <Property Name="incognito" Type="nvarchar" MaxLength="50" />
+          <Property Name="CountViews" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Information">
+          <Key>
+            <PropertyRef Name="informationID" />
+          </Key>
+          <Property Name="informationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="DOB" Type="date" Nullable="false" />
+          <Property Name="Irole" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="phoneNumber" Type="int" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="address" Type="nvarchar" MaxLength="255" />
+          <Property Name="departmentID" Type="int" />
+        </EntityType>
+        <EntityType Name="Interactive">
+          <Key>
+            <PropertyRef Name="interactiveID" />
+          </Key>
+          <Property Name="interactiveID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="createOn" Type="datetime" />
+          <Property Name="comment" Type="nvarchar(max)" />
+          <Property Name="ideaID" Type="int" />
+          <Property Name="Cname" Type="nvarchar" MaxLength="255" />
+          <Property Name="incognito" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LikeDislike">
+          <Key>
+            <PropertyRef Name="likeDislikeID" />
+          </Key>
+          <Property Name="likeDislikeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IsAction" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserAction" Type="nvarchar" MaxLength="50" />
+          <Property Name="ideaID" Type="int" />
+        </EntityType>
+        <EntityType Name="Replies">
+          <Key>
+            <PropertyRef Name="repliesID" />
+          </Key>
+          <Property Name="repliesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="createOn" Type="datetime" />
+          <Property Name="comment" Type="nvarchar" MaxLength="255" />
+          <Property Name="Rname" Type="nvarchar" MaxLength="255" />
+          <Property Name="interactiveID" Type="int" />
+          <Property Name="ideaID" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ASMWebTest1.dbo.view_a' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="view_a">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Department" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ASMWebTest1.dbo.view_d' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="view_d">
+          <Key>
+            <PropertyRef Name="ideaID" />
+          </Key>
+          <Property Name="ideaID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="255" />
+          <Property Name="TotalLikes" Type="int" />
+          <Property Name="TotalComments" Type="int" />
+          <Property Name="TotalInteract" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ASMWebTest1.dbo.view_e' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="view_e">
+          <Key>
+            <PropertyRef Name="ideaID" />
+            <PropertyRef Name="ideaTitle" />
+            <PropertyRef Name="creatAt" />
+            <PropertyRef Name="likes" />
+            <PropertyRef Name="dislikes" />
+            <PropertyRef Name="CountViews" />
+          </Key>
+          <Property Name="ideaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ideaTitle" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="creatAt" Type="datetime" Nullable="false" />
+          <Property Name="fileI" Type="varbinary(max)" />
+          <Property Name="urlFile" Type="varchar" MaxLength="255" />
+          <Property Name="description" Type="nvarchar" MaxLength="255" />
+          <Property Name="categoryID" Type="int" />
+          <Property Name="likes" Type="int" Nullable="false" />
+          <Property Name="dislikes" Type="int" Nullable="false" />
+          <Property Name="Iname" Type="nchar" MaxLength="255" />
+          <Property Name="incognito" Type="nvarchar" MaxLength="50" />
+          <Property Name="CountViews" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'ASMWebTest1.dbo.view_f' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="view_f">
+          <Property Name="TotalIdeas" Type="int" />
+        </EntityType>-->
+        <Association Name="FK__AspNetUse__depar__5AEE82B9">
+          <End Role="Departments" Type="Self.Departments" Multiplicity="0..1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="departmentID" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="departmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AspNetUse__depar__5BE2A6F2">
+          <End Role="Departments" Type="Self.Departments" Multiplicity="0..1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="departmentID" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="departmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ideas__categoryI__282DF8C2">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Ideas" Type="Self.Ideas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="categoryID" />
+            </Principal>
+            <Dependent Role="Ideas">
+              <PropertyRef Name="categoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Informati__depar__5DCAEF64">
+          <End Role="Departments" Type="Self.Departments" Multiplicity="0..1" />
+          <End Role="Information" Type="Self.Information" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="departmentID" />
+            </Principal>
+            <Dependent Role="Information">
+              <PropertyRef Name="departmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Interacti__ideaI__5BE2A6F2">
+          <End Role="Ideas" Type="Self.Ideas" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Interactive" Type="Self.Interactive" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ideas">
+              <PropertyRef Name="ideaID" />
+            </Principal>
+            <Dependent Role="Interactive">
+              <PropertyRef Name="ideaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LikeDisli__ideaI__5224328E">
+          <End Role="Ideas" Type="Self.Ideas" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LikeDislike" Type="Self.LikeDislike" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ideas">
+              <PropertyRef Name="ideaID" />
+            </Principal>
+            <Dependent Role="LikeDislike">
+              <PropertyRef Name="ideaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="P_TotalContributors" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="P_TotalIdeas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Year" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="ASMWebTest1ModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Departments" EntityType="Self.Departments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ideas" EntityType="Self.Ideas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Information" EntityType="Self.Information" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Interactive" EntityType="Self.Interactive" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LikeDislike" EntityType="Self.LikeDislike" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Replies" EntityType="Self.Replies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="view_a" EntityType="Self.view_a" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [view_a].[UserName] AS [UserName], 
+    [view_a].[Department] AS [Department]
+    FROM [dbo].[view_a] AS [view_a]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="view_d" EntityType="Self.view_d" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [view_d].[ideaID] AS [ideaID], 
+    [view_d].[Title] AS [Title], 
+    [view_d].[TotalLikes] AS [TotalLikes], 
+    [view_d].[TotalComments] AS [TotalComments], 
+    [view_d].[TotalInteract] AS [TotalInteract]
+    FROM [dbo].[view_d] AS [view_d]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="view_e" EntityType="Self.view_e" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [view_e].[ideaID] AS [ideaID], 
+    [view_e].[ideaTitle] AS [ideaTitle], 
+    [view_e].[creatAt] AS [creatAt], 
+    [view_e].[fileI] AS [fileI], 
+    [view_e].[urlFile] AS [urlFile], 
+    [view_e].[description] AS [description], 
+    [view_e].[categoryID] AS [categoryID], 
+    [view_e].[likes] AS [likes], 
+    [view_e].[dislikes] AS [dislikes], 
+    [view_e].[Iname] AS [Iname], 
+    [view_e].[incognito] AS [incognito], 
+    [view_e].[CountViews] AS [CountViews]
+    FROM [dbo].[view_e] AS [view_e]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__AspNetUse__depar__5AEE82B9" Association="Self.FK__AspNetUse__depar__5AEE82B9">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AspNetUse__depar__5BE2A6F2" Association="Self.FK__AspNetUse__depar__5BE2A6F2">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ideas__categoryI__282DF8C2" Association="Self.FK__Ideas__categoryI__282DF8C2">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Ideas" EntitySet="Ideas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Informati__depar__5DCAEF64" Association="Self.FK__Informati__depar__5DCAEF64">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Information" EntitySet="Information" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Interacti__ideaI__5BE2A6F2" Association="Self.FK__Interacti__ideaI__5BE2A6F2">
+            <End Role="Ideas" EntitySet="Ideas" />
+            <End Role="Interactive" EntitySet="Interactive" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LikeDisli__ideaI__5224328E" Association="Self.FK__LikeDisli__ideaI__5224328E">
+            <End Role="Ideas" EntitySet="Ideas" />
+            <End Role="LikeDislike" EntitySet="LikeDislike" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ASMWebTest1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+          <Property Name="departmentID" Type="Int32" />
+          <NavigationProperty Name="Departments" Relationship="ASMWebTest1Model.FK__AspNetUse__depar__2EA5EC27" FromRole="AspNetUsers" ToRole="Departments" />
+          <NavigationProperty Name="Departments1" Relationship="ASMWebTest1Model.FK__AspNetUse__depar__2F9A1060" FromRole="AspNetUsers" ToRole="Departments" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="categoryID" />
+          </Key>
+          <Property Name="categoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="categoryName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="closureDate" Type="DateTime" Precision="3" />
+          <Property Name="finalDate" Type="DateTime" Precision="3" />
+          <Property Name="Cstatus" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Ideas" Relationship="ASMWebTest1Model.FK__Ideas__categoryI__282DF8C2" FromRole="Categories" ToRole="Ideas" />
+        </EntityType>
+        <EntityType Name="Ideas">
+          <Key>
+            <PropertyRef Name="ideaID" />
+          </Key>
+          <Property Name="ideaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ideaTitle" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="creatAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fileI" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="urlFile" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="categoryID" Type="Int32" />
+          <Property Name="likes" Type="Int32" Nullable="false" />
+          <Property Name="dislikes" Type="Int32" Nullable="false" />
+          <Property Name="Iname" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Interactive" Relationship="Self.FK__Interacti__ideaI__5BE2A6F2" FromRole="Ideas" ToRole="Interactive" />
+          <NavigationProperty Name="Categories" Relationship="ASMWebTest1Model.FK__Ideas__categoryI__282DF8C2" FromRole="Ideas" ToRole="Categories" />
+          <Property Name="incognito" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="LikeDislike" Relationship="ASMWebTest1Model.FK__LikeDisli__ideaI__4F47C5E3" FromRole="Ideas" ToRole="LikeDislike" />
+          <NavigationProperty Name="Replies" Relationship="ASMWebTest1Model.FK__Replies__ideaID__607251E5" FromRole="Ideas" ToRole="Replies" />
+          <Property Name="CountViews" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Information">
+          <Key>
+            <PropertyRef Name="informationID" />
+          </Key>
+          <Property Name="informationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Irole" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="phoneNumber" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="departmentID" Type="Int32" />
+          <NavigationProperty Name="Departments" Relationship="ASMWebTest1Model.FK__Informati__depar__3BFFE745" FromRole="Information" ToRole="Departments" />
+        </EntityType>
+        <EntityType Name="Interactive">
+          <Key>
+            <PropertyRef Name="interactiveID" />
+          </Key>
+          <Property Name="interactiveID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="createOn" Type="DateTime" Precision="3" />
+          <Property Name="comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ideaID" Type="Int32" />
+          <Property Name="Cname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Ideas" Relationship="Self.FK__Interacti__ideaI__5BE2A6F2" FromRole="Interactive" ToRole="Ideas" />
+          <NavigationProperty Name="Replies" Relationship="Self.FK__Replies__interac__2739D489" FromRole="Interactive" ToRole="Replies" />
+          <Property Name="incognito" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Replies">
+          <Key>
+            <PropertyRef Name="repliesID" />
+          </Key>
+          <Property Name="repliesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="createOn" Type="DateTime" Precision="3" />
+          <Property Name="comment" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Rname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="interactiveID" Type="Int32" />
+          <NavigationProperty Name="Interactive" Relationship="Self.FK__Replies__interac__2739D489" FromRole="Replies" ToRole="Interactive" />
+          <Property Name="ideaID" Type="Int32" />
+          <NavigationProperty Name="Ideas" Relationship="ASMWebTest1Model.FK__Replies__ideaID__607251E5" FromRole="Replies" ToRole="Ideas" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Interacti__ideaI__5BE2A6F2">
+          <End Role="Ideas" Type="Self.Ideas" Multiplicity="0..1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Interactive" Type="Self.Interactive" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ideas">
+              <PropertyRef Name="ideaID" />
+            </Principal>
+            <Dependent Role="Interactive">
+              <PropertyRef Name="ideaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Replies__interac__2739D489">
+          <End Role="Interactive" Type="Self.Interactive" Multiplicity="0..1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Replies" Type="Self.Replies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Interactive">
+              <PropertyRef Name="interactiveID" />
+            </Principal>
+            <Dependent Role="Replies">
+              <PropertyRef Name="interactiveID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="ASMWebTest1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" />
+          <EntitySet Name="Ideas" EntityType="Self.Ideas" />
+          <EntitySet Name="Information" EntityType="Self.Information" />
+          <EntitySet Name="Interactive" EntityType="Self.Interactive" />
+          <EntitySet Name="Replies" EntityType="Self.Replies" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Interacti__ideaI__5BE2A6F2" Association="Self.FK__Interacti__ideaI__5BE2A6F2">
+            <End Role="Ideas" EntitySet="Ideas" />
+            <End Role="Interactive" EntitySet="Interactive" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Replies__interac__2739D489" Association="Self.FK__Replies__interac__2739D489">
+            <End Role="Interactive" EntitySet="Interactive" />
+            <End Role="Replies" EntitySet="Replies" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ideas__categoryI__282DF8C2" Association="ASMWebTest1Model.FK__Ideas__categoryI__282DF8C2">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Ideas" EntitySet="Ideas" />
+          </AssociationSet>
+          <EntitySet Name="LikeDislike" EntityType="ASMWebTest1Model.LikeDislike" />
+          <AssociationSet Name="FK__LikeDisli__ideaI__4F47C5E3" Association="ASMWebTest1Model.FK__LikeDisli__ideaI__4F47C5E3">
+            <End Role="Ideas" EntitySet="Ideas" />
+            <End Role="LikeDislike" EntitySet="LikeDislike" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Replies__ideaID__607251E5" Association="ASMWebTest1Model.FK__Replies__ideaID__607251E5">
+            <End Role="Ideas" EntitySet="Ideas" />
+            <End Role="Replies" EntitySet="Replies" />
+          </AssociationSet>
+          <EntitySet Name="Departments" EntityType="ASMWebTest1Model.Departments" />
+          <EntitySet Name="view_a" EntityType="ASMWebTest1Model.view_a" />
+          <AssociationSet Name="FK__AspNetUse__depar__2EA5EC27" Association="ASMWebTest1Model.FK__AspNetUse__depar__2EA5EC27">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AspNetUse__depar__2F9A1060" Association="ASMWebTest1Model.FK__AspNetUse__depar__2F9A1060">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <FunctionImport Name="GetTotalContributors" ReturnType="Collection(ASMWebTest1Model.GetTotalContributors_Result)" />
+          <FunctionImport Name="GetTotalIdeas" ReturnType="Collection(ASMWebTest1Model.GetTotalIdeas_Result)">
+          <Parameter Name="Year" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="view_d" EntityType="ASMWebTest1Model.view_d" />
+          <EntitySet Name="view_e" EntityType="ASMWebTest1Model.view_e" />
+          <AssociationSet Name="FK__Informati__depar__3BFFE745" Association="ASMWebTest1Model.FK__Informati__depar__3BFFE745">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Information" EntitySet="Information" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="FK__Ideas__categoryI__282DF8C2">
+          <End Type="ASMWebTest1Model.Categories" Role="Categories" Multiplicity="0..1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ASMWebTest1Model.Ideas" Role="Ideas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="categoryID" />
+            </Principal>
+            <Dependent Role="Ideas">
+              <PropertyRef Name="categoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="LikeDislike">
+          <Key>
+            <PropertyRef Name="likeDislikeID" />
+          </Key>
+          <Property Name="likeDislikeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ideaID" Type="Int32" />
+          <NavigationProperty Name="Ideas" Relationship="ASMWebTest1Model.FK__LikeDisli__ideaI__4F47C5E3" FromRole="LikeDislike" ToRole="Ideas" />
+          <Property Name="IsAction" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserAction" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK__LikeDisli__ideaI__4F47C5E3">
+          <End Type="ASMWebTest1Model.Ideas" Role="Ideas" Multiplicity="0..1" />
+          <End Type="ASMWebTest1Model.LikeDislike" Role="LikeDislike" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ideas">
+              <PropertyRef Name="ideaID" />
+            </Principal>
+            <Dependent Role="LikeDislike">
+              <PropertyRef Name="ideaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Replies__ideaID__607251E5">
+          <End Type="ASMWebTest1Model.Ideas" Role="Ideas" Multiplicity="0..1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ASMWebTest1Model.Replies" Role="Replies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ideas">
+              <PropertyRef Name="ideaID" />
+            </Principal>
+            <Dependent Role="Replies">
+              <PropertyRef Name="ideaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Departments">
+          <Key>
+            <PropertyRef Name="departmentID" />
+          </Key>
+          <Property Name="departmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="departmenName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="ASMWebTest1Model.FK__AspNetUse__depar__2EA5EC27" FromRole="Departments" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUsers1" Relationship="ASMWebTest1Model.FK__AspNetUse__depar__2F9A1060" FromRole="Departments" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Information" Relationship="ASMWebTest1Model.FK__Informati__depar__3BFFE745" FromRole="Departments" ToRole="Information" />
+        </EntityType>
+        <EntityType Name="view_a">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Department" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK__AspNetUse__depar__2EA5EC27">
+          <End Type="ASMWebTest1Model.Departments" Role="Departments" Multiplicity="0..1" />
+          <End Type="ASMWebTest1Model.AspNetUsers" Role="AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="departmentID" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="departmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AspNetUse__depar__2F9A1060">
+          <End Type="ASMWebTest1Model.Departments" Role="Departments" Multiplicity="0..1" />
+          <End Type="ASMWebTest1Model.AspNetUsers" Role="AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="departmentID" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="departmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="GetTotalContributors_Result">
+          <Property Type="Int32" Name="TotalContributors" Nullable="true" />
+          <Property Type="String" Name="Department" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="GetTotalIdeas_Result">
+          <Property Type="Int32" Name="TotalIdeas" Nullable="true" />
+          <Property Type="String" Name="departmenName" Nullable="false" MaxLength="255" />
+        </ComplexType>
+        <EntityType Name="view_d">
+          <Key>
+            <PropertyRef Name="ideaID" />
+          </Key>
+          <Property Name="ideaID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="TotalLikes" Type="Int32" />
+          <Property Name="TotalComments" Type="Int32" />
+          <Property Name="TotalInteract" Type="Int32" />
+        </EntityType>
+        <EntityType Name="view_e">
+          <Key>
+            <PropertyRef Name="ideaID" />
+            <PropertyRef Name="ideaTitle" />
+            <PropertyRef Name="creatAt" />
+            <PropertyRef Name="likes" />
+            <PropertyRef Name="dislikes" />
+            <PropertyRef Name="CountViews" />
+          </Key>
+          <Property Name="ideaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ideaTitle" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="creatAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fileI" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="urlFile" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="categoryID" Type="Int32" />
+          <Property Name="likes" Type="Int32" Nullable="false" />
+          <Property Name="dislikes" Type="Int32" Nullable="false" />
+          <Property Name="Iname" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+          <Property Name="incognito" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CountViews" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Informati__depar__3BFFE745">
+          <End Type="ASMWebTest1Model.Departments" Role="Departments" Multiplicity="0..1" />
+          <End Type="ASMWebTest1Model.Information" Role="Information" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="departmentID" />
+            </Principal>
+            <Dependent Role="Information">
+              <PropertyRef Name="departmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ASMWebTest1ModelStoreContainer" CdmEntityContainer="ASMWebTest1Entities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="ASMWebTest1Model.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="ASMWebTest1Model.AspNetRoles">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="ASMWebTest1Model.AspNetUserClaims">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="ASMWebTest1Model.AspNetUserLogins">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="ASMWebTest1Model.AspNetUsers">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="departmentID" ColumnName="departmentID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="ASMWebTest1Model.Categories">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+                <ScalarProperty Name="categoryName" ColumnName="categoryName" />
+                <ScalarProperty Name="closureDate" ColumnName="closureDate" />
+                <ScalarProperty Name="finalDate" ColumnName="finalDate" />
+                <ScalarProperty Name="Cstatus" ColumnName="Cstatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ideas">
+            <EntityTypeMapping TypeName="ASMWebTest1Model.Ideas">
+              <MappingFragment StoreEntitySet="Ideas">
+                <ScalarProperty Name="CountViews" ColumnName="CountViews" />
+                <ScalarProperty Name="incognito" ColumnName="incognito" />
+                <ScalarProperty Name="ideaID" ColumnName="ideaID" />
+                <ScalarProperty Name="ideaTitle" ColumnName="ideaTitle" />
+                <ScalarProperty Name="creatAt" ColumnName="creatAt" />
+                <ScalarProperty Name="fileI" ColumnName="fileI" />
+                <ScalarProperty Name="urlFile" ColumnName="urlFile" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+                <ScalarProperty Name="likes" ColumnName="likes" />
+                <ScalarProperty Name="dislikes" ColumnName="dislikes" />
+                <ScalarProperty Name="Iname" ColumnName="Iname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Information">
+            <EntityTypeMapping TypeName="ASMWebTest1Model.Information">
+              <MappingFragment StoreEntitySet="Information">
+                <ScalarProperty Name="departmentID" ColumnName="departmentID" />
+                <ScalarProperty Name="informationID" ColumnName="informationID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Irole" ColumnName="Irole" />
+                <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="address" ColumnName="address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Interactive">
+            <EntityTypeMapping TypeName="ASMWebTest1Model.Interactive">
+              <MappingFragment StoreEntitySet="Interactive">
+                <ScalarProperty Name="incognito" ColumnName="incognito" />
+                <ScalarProperty Name="interactiveID" ColumnName="interactiveID" />
+                <ScalarProperty Name="createOn" ColumnName="createOn" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="ideaID" ColumnName="ideaID" />
+                <ScalarProperty Name="Cname" ColumnName="Cname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Replies">
+            <EntityTypeMapping TypeName="ASMWebTest1Model.Replies">
+              <MappingFragment StoreEntitySet="Replies">
+                <ScalarProperty Name="ideaID" ColumnName="ideaID" />
+                <ScalarProperty Name="repliesID" ColumnName="repliesID" />
+                <ScalarProperty Name="createOn" ColumnName="createOn" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="Rname" ColumnName="Rname" />
+                <ScalarProperty Name="interactiveID" ColumnName="interactiveID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="ASMWebTest1Model.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="LikeDislike">
+            <EntityTypeMapping TypeName="ASMWebTest1Model.LikeDislike">
+              <MappingFragment StoreEntitySet="LikeDislike">
+                <ScalarProperty Name="UserAction" ColumnName="UserAction" />
+                <ScalarProperty Name="IsAction" ColumnName="IsAction" />
+                <ScalarProperty Name="ideaID" ColumnName="ideaID" />
+                <ScalarProperty Name="likeDislikeID" ColumnName="likeDislikeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="ASMWebTest1Model.Departments">
+              <MappingFragment StoreEntitySet="Departments">
+                <ScalarProperty Name="departmenName" ColumnName="departmenName" />
+                <ScalarProperty Name="departmentID" ColumnName="departmentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="view_a">
+            <EntityTypeMapping TypeName="ASMWebTest1Model.view_a">
+              <MappingFragment StoreEntitySet="view_a">
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetTotalContributors" FunctionName="ASMWebTest1Model.Store.P_TotalContributors">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ASMWebTest1Model.GetTotalContributors_Result">
+                <ScalarProperty Name="TotalContributors" ColumnName="TotalContributors" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetTotalIdeas" FunctionName="ASMWebTest1Model.Store.P_TotalIdeas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ASMWebTest1Model.GetTotalIdeas_Result">
+                <ScalarProperty Name="TotalIdeas" ColumnName="TotalIdeas" />
+                <ScalarProperty Name="departmenName" ColumnName="departmenName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="view_d">
+            <EntityTypeMapping TypeName="ASMWebTest1Model.view_d">
+              <MappingFragment StoreEntitySet="view_d">
+                <ScalarProperty Name="TotalInteract" ColumnName="TotalInteract" />
+                <ScalarProperty Name="TotalComments" ColumnName="TotalComments" />
+                <ScalarProperty Name="TotalLikes" ColumnName="TotalLikes" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ideaID" ColumnName="ideaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="view_e">
+            <EntityTypeMapping TypeName="ASMWebTest1Model.view_e">
+              <MappingFragment StoreEntitySet="view_e">
+                <ScalarProperty Name="CountViews" ColumnName="CountViews" />
+                <ScalarProperty Name="incognito" ColumnName="incognito" />
+                <ScalarProperty Name="Iname" ColumnName="Iname" />
+                <ScalarProperty Name="dislikes" ColumnName="dislikes" />
+                <ScalarProperty Name="likes" ColumnName="likes" />
+                <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="urlFile" ColumnName="urlFile" />
+                <ScalarProperty Name="fileI" ColumnName="fileI" />
+                <ScalarProperty Name="creatAt" ColumnName="creatAt" />
+                <ScalarProperty Name="ideaTitle" ColumnName="ideaTitle" />
+                <ScalarProperty Name="ideaID" ColumnName="ideaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

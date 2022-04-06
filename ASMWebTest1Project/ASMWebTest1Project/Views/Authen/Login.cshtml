@@ -1,0 +1,68 @@
+﻿
+@model ASMWebTest1Project.Models.Account
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="~/Content/login.css">
+
+    <div>
+
+        <div class="container ">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-6 col-md-offset-3">
+                    <div id="iosBlurBg">
+                        <div id="whiteBg">
+                        </div>
+
+                    </div>
+                    <div id="bottomEnter"></div>
+                    <div id="bottomBlurBg"></div>
+                    <!-- Login Form -->
+                    <div class="loginForm">
+                        <div class="title">
+                            <h3>Login your account <br><span>6bros</span></h3>
+                            <hr>
+                            <hr class="short">
+                        </div>
+                        <form id="form1">
+                            <div class="col-3">
+
+                                @Html.EditorFor(model => model.UserName, new
+                                {
+                                    htmlAttributes = new { @class = "form-control effect-2", @placeholder = "Enter your username" }
+                                })
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                <span class="focus-border"></span>
+
+                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control effect-2", @placeholder = "Enter your password" } })
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                <span class="focus-border"></span>
+                            </div>
+                        </form>
+                    </div>
+                    <a href="#">
+                        <div class="enterButton ">
+                            <input type="submit" value="Login" class="btn-secondary" />
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+}

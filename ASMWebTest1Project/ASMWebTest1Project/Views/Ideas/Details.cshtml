@@ -1,0 +1,251 @@
+﻿@model ASMWebTest1Project.Models.Ideas
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<style>
+    ol, ul {
+        padding-left:unset;
+    }
+</style>
+<section class="home-section">
+
+    <nav>
+        <div class="sidebar-button">
+
+            <span class="dashboard">Details</span>
+        </div>
+        <div class="search-box" style="display: flex">
+            @using (Html.BeginForm("IndexGuest", "Ideas", FormMethod.Get))
+            {
+                @Html.TextBox("Search_Data", ViewBag.FilterValue as string, new { @placeholder = "Search" })
+                <input class="search" type="submit" value="     " /><i class="fa fa-search" style="font-size: 28px; position: absolute;left: 275px;top: 10px;"></i>
+            }
+        </div>
+        <div class="profile-details">
+
+            <span class="admin_name">
+                Welcome, @Html.DisplayFor(modelItem => User.Identity.Name)
+            </span>
+
+        </div>
+    </nav>
+
+    <div class="home-content">
+
+
+        <div class="sales-boxes">
+
+            <div class="recent-sales box">
+
+
+                <div class="sales-details" style="display:block">
+
+                    <div class="container" style="border:1px solid gray; border-radius: 10px; width: 70%;">
+
+
+                        <h1 style="padding:20px;">Author: @Html.DisplayFor(model => model.Iname) </h1>
+
+
+                        <div>
+                            <table class="table table-hover" style="font-size:16px">
+                                <tr>
+                                    <th class="row" style="font-size:16px">
+                                        Title
+                                    </th>
+                                    <td>
+                                        @Html.DisplayFor(model => model.ideaTitle)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="row" style="font-size:16px">
+                                        Create On
+                                    </th>
+                                    <td>
+                                        @Html.DisplayFor(model => model.creatAt)
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <th class="row" style="font-size:16px">
+                                        File
+                                    </th>
+                                    <td>
+
+
+                                        @Html.DisplayFor(model => model.urlFile)
+                                        <a style="margin-left:20px">
+                                            @Html.ActionLink(" ", "Download", new { fileName = Model.urlFile }, new { @class = "fa-solid fa-download", @style = "font-size: 20px; letter-spacing:5px; color: gray" })
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="row" style="font-size:16px">
+                                        Description
+
+                                    </th>
+                                    <td>
+                                        @Html.DisplayFor(model => model.description)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="row" style="font-size:16px">
+                                        Category
+
+                                    </th>
+                                    <td>
+                                        @Html.DisplayFor(model => model.Categories.categoryName)
+                                    </td>
+                                </tr>
+
+                            </table>
+
+
+                        </div>
+
+                        <div style="display:flex;justify-content:space-between;margin:15px 15px">
+                            <script src="https://use.fontawesome.com/fe459689b4.js"></script>
+                            <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+                            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+                            <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+                            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+                            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+                            <span style="font-size:18px;display:inline-block;margin-right:40px"><i class="fa-solid fa-eye"></i> @Model.CountViews</span>
+
+                            @using (Html.BeginForm("Create", "LikeDislikes", FormMethod.Post))
+                            {
+
+                                @Html.AntiForgeryToken()
+                                @Html.Hidden("ideaID", Model.ideaID)
+                                @Html.Hidden("UserAction", User.Identity.Name)
+
+                                foreach (var user in Model.LikeDislike)
+                                {
+                                    ViewBag.name = user.UserAction;
+                                    ViewBag.userlike = user.IsAction;
+                                }
+                                if (ViewBag.name == User.Identity.Name && Convert.ToBoolean(ViewBag.userlike) == true)
+                                {
+                                    <button style="font-size:18px;margin-right:40px;" type="submit" class="btn btn-secondary btn-xs like-button" disabled value="true" id="IsAction" name="IsAction">
+                                        Like <i class="fa fa-thumbs-o-up"></i> <span id="likecount"> @Model.likes</span>
+                                    </button>
+                                    <button style="        font-size: 18px;margin-right: 40px" type="submit" class="btn btn-secondary btn-xs like-button" disabled value="false" id="IsAction" name="IsAction">
+                                        Dislike <i class="fa fa-thumbs-o-down"> </i><span id="dislikecount"> @Model.dislikes</span>
+                                    </button>
+                                }
+                                else if (ViewBag.name == User.Identity.Name && Convert.ToBoolean(ViewBag.userlike) == false)
+                                {
+                                    <button style="        font-size: 18px; margin-right: 40px" type="submit" class="btn btn-secondary btn-xs like-button" disabled value="true" id="IsAction" name="IsAction">
+                                        Like <i class="fa fa-thumbs-o-up"> </i> <span id="likecount"> @Model.likes </span>
+                                    </button>
+                                    <button style="        font-size: 18px;margin-right: 40px" type="submit" class="btn btn-secondary btn-xs like-button" disabled value="false" id="IsAction" name="IsAction">
+                                        Dislike <i class="fa fa-thumbs-o-down"> </i><span id="dislikecount"> @Model.dislikes</span>
+                                    </button>
+                                }
+                                else
+                                {
+                                    <button style="        font-size: 18px;margin-right: 40px" type="submit" class="btn btn-secondary btn-xs like-button" value="true" id="IsAction" name="IsAction">
+                                        Like <i class="fa fa-thumbs-o-up"> </i> <span id="likecount"> @Model.likes</span>
+                                    </button>
+                                    <button style="        font-size: 18px;margin-right: 40px" type="submit" class="btn btn-secondary btn-xs like-button" value="false" id="IsAction" name="IsAction">
+                                        Dislike <i class="fa fa-thumbs-o-down"> </i><span id="dislikecount"> @Model.dislikes</span>
+                                    </button>
+
+                                }
+
+
+
+                            }
+                            <button style="font-size:18px" type="submit" class="btn btn-secondary btn-xs like-button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample;margin: 20px;font-size: 18px">
+                                <i class="fa fa-comment " style="font-size:25px"></i>
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <div class="container collapse" id="collapseExample" style="border:1px solid gray; border-radius: 10px; width: 70%; margin-top: 10px">
+                        <div>
+                            <div style="margin:10px">
+                                @using (Html.BeginForm("Create", "Interactives", FormMethod.Post, new { @style = "width: 80%" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    @Html.Hidden("ideaID", Model.ideaID)
+                                    @Html.TextBox("Comment", " ", new { @style = " height:30px;width:90% " })
+                                    @Html.Hidden("createOn", DateTime.Now)
+                                    @Html.Hidden("Cname", User.Identity.Name)<span style="font-size:15px;margin-left:5px">Anonymous  @Html.CheckBox("incognito", false) </span>
+                                    
+                                    
+                                    <input style="margin-top:10px;font-size:15px" type="submit" value="Comment" id="btn" />
+
+
+                                }
+
+                            </div>
+                            <form>
+                                <div id="comments" style="margin-top:20px;">
+
+                                    @foreach (var item in Model.Interactive)
+
+                                    {
+                                        <div class="comment-name" id="incog" style="margin-right: 15px; font-size: 16px; color: green; @(Convert.ToBoolean(item.incognito) ? "display:none" : "display:block")">@item.Cname</div>
+                                        <div class="comment-name" id="incog" style="margin-right: 15px; font-size: 16px; color: green; @(Convert.ToBoolean(item.incognito) ? "display:block" : "display:none")">Anonymous</div>
+                                        <div class="comment" style="        border-radius: 10px;margin: 0 20px 20px 20px;padding: 10px;background-color: #f5f5f5;">
+
+                                            <div class="comment-content" style="font-size: 20px">@item.comment</div>
+                                            <div class="createOn" style="margin-left:10px">@item.createOn</div>
+                                            @foreach (var reply in item.Replies)
+                                            {
+                                                <br />
+                                                <div style="margin-right: 15px; font-size: 12px; color: darkslateblue; margin-left: 20px">
+                                                    @reply.Rname
+
+                                                </div>
+                                                <div style="font-size:15px; margin-left: 20px">
+                                                    @reply.comment
+                                                </div>
+                                                <div style="margin-left: 10px; margin-left: 20px">
+                                                    @reply.createOn
+                                                </div>
+
+                                            }
+                                            <br />
+                                            @using (Html.BeginForm("Create", "Replies", FormMethod.Post))
+                                            {
+                                                @Html.AntiForgeryToken()
+                                                @Html.Hidden("interactiveID", item.interactiveID)
+                                                @Html.TextBox("Comment", " ", new { @style = " height:30px;width:100% " })
+                                                @Html.Hidden("createOn", DateTime.Now)
+                                                @Html.Hidden("Rname", User.Identity.Name)
+                                                @Html.Hidden("ideaID", item.ideaID)
+
+                                                <input type="submit" value="Reply" style="font-size: 15px" />
+                                            }
+                                        </div>
+
+                                    }
+
+                                </div>
+                            </form>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
